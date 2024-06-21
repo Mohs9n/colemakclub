@@ -1180,8 +1180,6 @@ input.addEventListener('keydown', (e)=> {
 		}
 	}else {
 		console.log('error');
-		console.log(mistakeLimitModeButton.checked);
-		console.log(mistakeLimitModeInput.value);
 		input.style.color = 'red';
 		// no points awarded for backspace
 		if(e.keyCode == 8) {
@@ -1209,12 +1207,10 @@ input.addEventListener('keydown', (e)=> {
 			
 			if (mistakeLimitMode) {
 				updateMistakeLimitText();
-				if (errors == mistakeLimitModeInput.value) {
+				if (errors >= mistakeLimitModeInput.value) {
 					console.log('lost');
-					reset();
+					endGame();
 				}
-				console.log('mistakeModeLimit');
-				console.log(errors);
 			}
 		}
 
